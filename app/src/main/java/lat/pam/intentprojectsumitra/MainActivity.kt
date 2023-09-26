@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == TEXT_REQUEST) {
+            val mReplyHeadTextView = findViewById<TextView>(R.id.text_header_reply)
+            val mReplyTextView = findViewById<TextView>(R.id.text_message_reply)
+            val reply = data?.getStringExtra(EXTRA_REPLY)
             if (resultCode == RESULT_OK) {
-                val mReplyHeadTextView = findViewById<TextView>(R.id.text_header_reply)
-                val mReplyTextView = findViewById<TextView>(R.id.text_message_reply)
-                val reply = data?.getStringExtra(EXTRA_REPLY)
 
                 mReplyHeadTextView.visibility = View.VISIBLE
                 mReplyTextView.text = reply
